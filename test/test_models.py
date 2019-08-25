@@ -32,7 +32,8 @@ def test_change_data_ok(mocker, import_id, correct_citizen_data):
     citizen = Citizen.change_data(import_id, correct_citizen_data['citizen_id'], {
         "name": "Иванова Мария Леонидовна",
         "town": "Новосибирск",
-        "apartment": 9})
+        "apartment": 9,
+        "birth_date": '23.12.1999'})
     assert citizen
     assert citizen.name == "Иванова Мария Леонидовна"
     assert citizen.town == "Новосибирск"
