@@ -61,6 +61,8 @@ class Citizen(db.Model):
                 if not Relations.change_relations(import_id, citizen_id, value):
                     db_worker.rollback()
                     return None
+            elif key == 'birth_date':
+                citizen.birth_date = date(*reversed([int(x) for x in data['birth_date'].split('.')]))
             else:
                 citizen.__setattr__(key, value)
 
