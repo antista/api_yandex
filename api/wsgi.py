@@ -13,6 +13,5 @@ db_worker = DataBaseWorker(db)
 app.secret_key = b'yhb77sw9_"F4Q8z\n\xec]/'
 from .views import *
 
-if app['development']:
-  db.drop_all()
+db.drop_all()
 db.create_all()

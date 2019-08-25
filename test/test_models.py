@@ -26,7 +26,8 @@ def test_create_empty_citizen(import_id):
     assert not Citizen.create_citizen(import_id, {})
 
 
-def test_change_data_ok(import_id, correct_citizen_data):
+def test_change_data_ok(mocker, import_id, correct_citizen_data):
+    mocker.patch('api.database_worker.DataBaseWorker.commit')
     Citizen.create_citizen(import_id, correct_citizen_data)
     citizen = Citizen.change_data(import_id, correct_citizen_data['citizen_id'], {
         "name": "Иванова Мария Леонидовна",
@@ -137,7 +138,8 @@ def test_change_relatives(mocker, correct_import_data):
     assert another_citizen_id in Relations.get_all_relatives_id(import_id, citizen_id)
 
 
-def test_count_presents(correct_import_data, correct_presents_response, correct_age_stat_response):
+def test_count_presents(mocker, correct_import_data, correct_presents_response, correct_age_stat_response):
+    mocker.patch('api.database_worker.DataBaseWorker.commit')
     import_id = Import.create_import(correct_import_data)
     presents = Citizen.count_presents(import_id)
     assert presents == correct_presents_response
