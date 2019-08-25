@@ -15,6 +15,8 @@
 * `set FLASK_APP=api.wsgi` on Windows
 * `export FLASK_APP=api.wsgi` on Linux and Mac
 * `flask run`
+* `flask run --host=0.0.0.0 --port=8080`
+
 
 ### Запуск тестов
 * `python -m pytest`
