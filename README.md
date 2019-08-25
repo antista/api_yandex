@@ -19,8 +19,8 @@
 
 
 ### Запуск тестов
-* `python -m pytest`
-* `python -m pytest --cov api/`
+* `python3 -m pytest`
+* `python3 -m pytest --cov api/`
 * `coverage report -m`
 
 ### Запуск линтера
