@@ -12,7 +12,8 @@
 
 
 ### Запуск сервера
-* `set FLASK_APP=api.wsgi`
+* `set FLASK_APP=api.wsgi` on Windows
+* `export FLASK_APP=api.wsgi` on Linux and Mac
 * `flask run`
 
 ### Запуск тестов
